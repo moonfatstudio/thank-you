@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Makasih, pesananmu masuk : Moon Fat Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   MOON FAT STUDIO : THANK YOU PAGE
+   Font brand asli (Daymore Sans & Bilingual Serif Font) di-load
+   lewat @font-face di bawah. Taruh file font di folder /fonts,
+   sejajar dengan index.html. Kalau file belum ada, browser
+   otomatis jatuh ke fallback (Poppins SemiBold & Instrument Serif).
+   ========================================================= */
+
+@font-face {
+  font-family: 'Daymore Sans';
+  src: url('fonts/DaymoreSans.woff2') format('woff2'),
+       url('fonts/DaymoreSans.woff') format('woff');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Bilingual Serif Font';
+  src: url('fonts/BilingualSerif.woff2') format('woff2'),
+       url('fonts/BilingualSerif.woff') format('woff');
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root{
+  /* Warna : sesuai design system */
+  --olympian:#274C77;
+  --blue-blood:#6197BA;
+  --rich-black:#040C14;
+  --cello:#1E3959;
+  --azureish:#A3CEF1;
+  --snow-cream:#E7ECEF;
+  --white:#FFFFFF;
+  --waffle:#F2CC8F;
+  --marker-red:#E2402F;
+
+  /* Tipografi */
+  --display:'Daymore Sans','Poppins',system-ui,sans-serif;
+  --serif:'Bilingual Serif Font','Instrument Serif',Georgia,serif;
+  --body:'Poppins',system-ui,-apple-system,sans-serif;
+
+  /* Spasi */
+  --gutter:clamp(22px,5.5vw,88px);
+  --maxw:1080px;
+  --radius:4px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--body);
+  font-weight:300;
+  background:var(--snow-cream);
+  color:var(--rich-black);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+::selection{background:var(--waffle);color:var(--rich-black)}
+:focus-visible{outline:3px solid var(--waffle);outline-offset:3px}
+
+/* ---------- utilitas ---------- */
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding-inline:var(--gutter)}
+body{overflow-x:hidden}
+.eyebrow{
+  font-size:.68rem;font-weight:500;letter-spacing:.28em;text-transform:uppercase;
+}
+.serif{font-family:var(--serif);font-weight:400}
+
+/* ---------- HERO : gelap ---------- */
+.hero{
+  position:relative;
+  background:var(--rich-black);
+  color:var(--snow-cream);
+  overflow:hidden;
+  padding:clamp(56px,9vw,96px) 0 clamp(64px,10vw,112px);
+}
+/* dinding grid referensi */
+.hero__grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(to right,rgba(97,151,186,.14) 1px,transparent 1px),
+    linear-gradient(to bottom,rgba(97,151,186,.14) 1px,transparent 1px);
+  background-size:56px 56px;
+  mask-image:radial-gradient(120% 90% at 18% 20%,#000 10%,transparent 78%);
+  -webkit-mask-image:radial-gradient(120% 90% at 18% 20%,#000 10%,transparent 78%);
+  pointer-events:none;
+}
+.hero__glow{
+  position:absolute;width:70vw;height:70vw;max-width:760px;max-height:760px;
+  top:-28%;right:-16%;
+  background:radial-gradient(circle,rgba(39,76,119,.55) 0%,transparent 62%);
+  pointer-events:none;
+}
+.hero__inner{position:relative}
+.hero__title,.hero__lede,.hero__meta{max-width:44rem}
+
+.hero .eyebrow{color:var(--azureish);display:flex;align-items:center;gap:12px}
+.hero .eyebrow::after{content:"";flex:1;height:1px;background:rgba(163,206,241,.35);max-width:96px}
+
+.hero__title{
+  font-family:var(--display);
+  font-size:clamp(4.2rem,17vw,10rem);
+  line-height:.82;
+  letter-spacing:-.02em;
+  margin:.18em 0 .1em;
+  color:var(--white);
+}
+.hero__title .dot{color:var(--waffle)}
+.hero__lede{
+  font-family:var(--serif);
+  font-size:clamp(1.25rem,3.1vw,1.75rem);
+  line-height:1.35;
+  color:var(--azureish);
+  max-width:30ch;
+}
+
+/* baris status di bawah hero */
+.hero__meta{
+  display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px;
+  margin-top:clamp(26px,4vw,38px);
+  padding-top:22px;
+  border-top:1px solid rgba(163,206,241,.22);
+  font-size:.95rem;color:var(--blue-blood);
+}
+.status{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:.7rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--waffle);
+}
+.status i{width:7px;height:7px;border-radius:50%;background:var(--waffle);display:block;
+  box-shadow:0 0 0 0 rgba(242,204,143,.7);animation:ping 2.4s ease-out infinite}
+@keyframes ping{
+  0%{box-shadow:0 0 0 0 rgba(242,204,143,.6)}
+  70%{box-shadow:0 0 0 9px rgba(242,204,143,0)}
+  100%{box-shadow:0 0 0 0 rgba(242,204,143,0)}
+}
+/* stempel : elemen tanda tangan halaman */
+.stamp{position:absolute;right:clamp(-30px,-2vw,0px);bottom:-34px;width:clamp(150px,20vw,232px);opacity:.5;pointer-events:none}
+.stamp path,.stamp circle,.stamp line{
+  fill:none;stroke:var(--blue-blood);stroke-width:5;
+  stroke-linecap:round;stroke-linejoin:round;
+  vector-effect:non-scaling-stroke;
+}
+.draw{stroke-dasharray:var(--len,600);stroke-dashoffset:var(--len,600);animation:draw 1.5s cubic-bezier(.6,.05,.2,1) forwards}
+.draw--2{animation-delay:.35s}
+.draw--3{animation-delay:.7s}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+/* ---------- KONTEN : terang ---------- */
+.section{padding-block:clamp(48px,8vw,96px)}
+.section__head{max-width:56ch;margin-bottom:clamp(30px,4.6vw,52px)}
+.section__head .eyebrow{color:var(--blue-blood)}
+.section__title{
+  font-family:var(--serif);
+  font-size:clamp(1.85rem,4.6vw,2.9rem);
+  line-height:1.12;
+  color:var(--olympian);
+  margin-top:12px;
+}
+.section__title u{
+  text-decoration:none;
+  background:linear-gradient(transparent 66%,var(--waffle) 66%);
+  padding-inline:2px;
+}
+.section__note{margin-top:14px;color:var(--cello);font-size:1rem;max-width:48ch}
+
+/* langkah : urutan asli, jadi penomoran dipakai */
+.steps{display:grid;gap:1px;background:rgba(39,76,119,.18);border-block:1px solid rgba(39,76,119,.18)}
+@media(min-width:760px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step{background:var(--snow-cream);padding:clamp(24px,3.4vw,34px) clamp(20px,2.6vw,28px)}
+.step__num{
+  font-family:var(--serif);font-size:1.5rem;color:var(--blue-blood);
+  display:block;margin-bottom:14px;letter-spacing:.06em;
+}
+.step h3{font-size:1.06rem;font-weight:600;color:var(--olympian);margin-bottom:8px}
+.step p{font-size:.95rem;color:var(--cello)}
+
+/* kanal resmi */
+.channels{display:grid;gap:18px}
+@media(min-width:720px){.channels{grid-template-columns:1fr 1fr}}
+.channel{
+  display:flex;flex-direction:column;gap:16px;
+  background:var(--white);
+  border:1px solid rgba(39,76,119,.16);
+  border-radius:var(--radius);
+  padding:clamp(22px,3vw,28px);
+  transition:border-color .28s ease,box-shadow .28s ease;
+}
+.channel:hover{
+  border-color:var(--olympian);
+  box-shadow:0 14px 30px -20px rgba(4,12,20,.55);
+}
+.btn{
+  align-self:flex-start;margin-top:auto;
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--body);font-size:.9rem;font-weight:500;letter-spacing:.02em;
+  color:var(--white);background:var(--olympian);
+  text-decoration:none;border:1px solid var(--olympian);border-radius:var(--radius);
+  padding:12px 22px;
+  transition:background .24s ease,color .24s ease,transform .24s cubic-bezier(.2,.7,.3,1);
+}
+.btn svg{width:15px;height:15px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round;
+  transition:transform .24s cubic-bezier(.2,.7,.3,1)}
+.btn:hover{background:var(--cello);border-color:var(--cello);transform:translateY(-2px)}
+.btn:hover svg{transform:translateX(3px)}
+.channel__icon{flex:none;width:52px;height:52px}
+.channel__icon svg{width:100%;height:100%}
+.channel__icon path,.channel__icon circle,.channel__icon line{
+  fill:none;stroke:var(--olympian);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;
+}
+.channel h3{font-size:1.06rem;font-weight:600;color:var(--olympian);display:flex;align-items:center;gap:9px}
+.channel h3 span{
+  font-size:.62rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--cello);background:var(--snow-cream);padding:3px 8px;border-radius:2px;
+}
+.channel p{font-size:.92rem;color:var(--cello);margin-top:6px}
+
+/* callout koreksi : merah marker khusus larangan */
+.warning{
+  margin-top:28px;display:flex;gap:16px;align-items:flex-start;
+  border-left:3px solid var(--marker-red);
+  background:var(--white);
+  padding:20px 22px;border-radius:0 var(--radius) var(--radius) 0;
+}
+.warning svg{flex:none;width:26px;height:26px;stroke:var(--marker-red);stroke-width:5;fill:none;stroke-linecap:round}
+.warning strong{display:block;font-weight:600;color:var(--marker-red);font-size:.95rem;margin-bottom:3px}
+.warning p{font-size:.92rem;color:var(--cello)}
+
+/* FAQ */
+.faq{border-top:1px solid rgba(39,76,119,.18)}
+.faq__item{border-bottom:1px solid rgba(39,76,119,.18)}
+.faq__q{
+  width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;
+  background:none;border:none;cursor:pointer;text-align:left;
+  font-family:var(--body);font-size:1rem;font-weight:500;color:var(--olympian);
+  padding:22px 0;
+}
+.faq__q:hover{color:var(--blue-blood)}
+.faq__sign{flex:none;position:relative;width:16px;height:16px}
+.faq__sign::before,.faq__sign::after{
+  content:"";position:absolute;background:var(--waffle);border-radius:2px;
+  transition:transform .3s cubic-bezier(.2,.7,.3,1);
+}
+.faq__sign::before{top:7px;left:0;width:16px;height:2px}
+.faq__sign::after{left:7px;top:0;width:2px;height:16px}
+.faq__item.is-open .faq__sign::after{transform:rotate(90deg)}
+.faq__a{overflow:hidden;height:0;transition:height .34s cubic-bezier(.2,.7,.3,1)}
+.faq__a p{padding-bottom:24px;font-size:.95rem;color:var(--cello);max-width:62ch}
+
+/* footer */
+.footer{background:var(--olympian);color:var(--snow-cream);padding:clamp(40px,6vw,60px) 0}
+.footer__inner{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}
+.footer__mark{font-family:var(--serif);font-size:1.5rem;letter-spacing:.02em;color:var(--white)}
+.footer p{font-size:.84rem;color:var(--azureish)}
+
+/* animasi masuk */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
+.reveal.is-in{opacity:1;transform:none}
+.hero .reveal{transition-delay:calc(var(--i,0) * 110ms)}
+
+/* ---------- TABLET ---------- */
+@media(max-width:900px){
+  .hero{padding-block:clamp(48px,8vw,72px) clamp(72px,11vw,96px)}
+  .hero__grid{background-size:44px 44px}
+  .stamp{width:clamp(120px,22vw,168px);right:-14px;bottom:-22px;opacity:.42}
+  .section__head{margin-bottom:clamp(26px,4vw,38px)}
+}
+
+/* langkah menumpuk : samakan garis kiri dengan judul section */
+@media(max-width:759px){
+  .steps{border-block:none;background:none;gap:0}
+  .step{
+    padding:22px 0;
+    border-top:1px solid rgba(39,76,119,.18);
+  }
+  .step:last-child{border-bottom:1px solid rgba(39,76,119,.18)}
+  .step__num{margin-bottom:10px;font-size:1.3rem}
+}
+
+/* ---------- HP ---------- */
+@media(max-width:640px){
+  .hero__title{font-size:clamp(3.6rem,22vw,6rem)}
+  .hero__lede{font-size:1.12rem;max-width:none}
+  .hero__meta{
+    flex-direction:column;align-items:flex-start;gap:8px;
+    margin-top:26px;padding-top:18px;font-size:.9rem;line-height:1.55;
+  }
+  .stamp{width:104px;right:-30px;bottom:-30px;opacity:.26}
+
+  .section__note{font-size:.95rem}
+
+  .channels{gap:14px}
+  .channel{padding:22px 20px;gap:14px}
+  .channel__icon{width:42px;height:42px}
+  .channel h3{flex-wrap:wrap;gap:8px}
+  .btn{width:100%;justify-content:center;padding:14px 20px}
+
+  .warning{padding:18px;gap:13px;margin-top:22px}
+  .warning svg{width:22px;height:22px}
+
+  .faq__q{padding:18px 0;font-size:.96rem;gap:14px}
+  .faq__a p{padding-bottom:20px;font-size:.92rem}
+
+  .footer__inner{flex-direction:column;align-items:flex-start;gap:10px}
+  .footer__mark{font-size:1.3rem}
+  .footer p{font-size:.8rem}
+}
+
+/* ---------- HP KECIL ---------- */
+@media(max-width:380px){
+  .hero__title{font-size:3.3rem}
+  .channel h3 span{font-size:.58rem}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none !important;transition-duration:.01ms !important}
+  .reveal{opacity:1;transform:none}
+  .draw{stroke-dashoffset:0}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero__grid"></div>
+  <div class="hero__glow"></div>
+
+  <div class="wrap hero__inner">
+    <p class="eyebrow reveal" style="--i:0">Pembayaran terkonfirmasi</p>
+    <h1 class="hero__title reveal" style="--i:1">Beres<span class="dot">.</span></h1>
+    <p class="hero__lede reveal" style="--i:2">Duitmu sudah mendarat dengan selamat. Akses kamu dikirim otomatis, tidak perlu nunggu di-approve siapa siapa.</p>
+    <p class="hero__meta reveal" style="--i:3">
+      <span class="status"><i></i>Lunas</span>
+      Invoice dan link akses meluncur ke email kamu.
+    </p>
+  </div>
+
+  <!-- stempel tanda tangan : bulan sabit, palet, riak air -->
+  <svg class="stamp" viewBox="0 0 240 240" aria-hidden="true">
+    <path class="draw" style="--len:520"
+      d="M172 44a84 84 0 1 0 26 62 66 66 0 1 1-26-62Z"/>
+    <circle class="draw draw--2" style="--len:300" cx="118" cy="112" r="42"/>
+    <circle class="draw draw--2" style="--len:60" cx="104" cy="98" r="7"/>
+    <circle class="draw draw--2" style="--len:60" cx="132" cy="104" r="7"/>
+    <circle class="draw draw--2" style="--len:60" cx="112" cy="130" r="7"/>
+    <path class="draw draw--3" style="--len:200" d="M46 196c14-12 28-12 42 0s28 12 42 0 28-12 42 0"/>
+    <path class="draw draw--3" style="--len:160" d="M62 218c12-10 24-10 36 0s24 10 36 0"/>
+  </svg>
+</header>
+
+<main>
+  <!-- ============ LANGKAH ============ -->
+  <section class="section wrap">
+    <div class="section__head reveal">
+      <p class="eyebrow">Alurnya</p>
+      <h2 class="section__title">Tiga langkah, lalu kamu <u>mulai belajar</u>.</h2>
+      <p class="section__note">Semuanya otomatis. Tidak ada konfirmasi manual, tidak ada antre balasan admin.</p>
+    </div>
+
+    <div class="steps reveal">
+      <article class="step">
+        <span class="step__num serif">I</span>
+        <h3>Cek email kamu</h3>
+        <p>Invoice dan detail akses dikirim ke email yang kamu isi waktu checkout. Biasanya masuk di bawah lima menit.</p>
+      </article>
+      <article class="step">
+        <span class="step__num serif">II</span>
+        <h3>Buka link aksesnya</h3>
+        <p>Klik link di email itu, materinya langsung kebuka. Tidak perlu konfirmasi ke siapa pun dulu.</p>
+      </article>
+      <article class="step">
+        <span class="step__num serif">III</span>
+        <h3>Simpan emailnya</h3>
+        <p>Link yang sama dipakai tiap kali kamu balik. Akses berlaku selamanya, termasuk materi yang diperbarui.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ KANAL RESMI ============ -->
+  <section class="section wrap" style="padding-block-start:0">
+    <div class="section__head reveal">
+      <p class="eyebrow">Kanal resmi</p>
+      <h2 class="section__title">Ada yang nyangkut? Kabari lewat sini.</h2>
+      <p class="section__note">Cuma dua kanal ini yang beneran kami pegang. Selain itu bukan kami.</p>
+    </div>
+
+    <div class="channels reveal">
+      <article class="channel">
+        <span class="channel__icon">
+          <svg viewBox="0 0 120 120" aria-hidden="true">
+            <path d="M24 96l6-20a38 38 0 1 1 14 14L24 96Z"/>
+            <path d="M48 52c2 10 10 18 20 20l6-6 8 6c-4 8-16 6-24 0s-14-16-8-24l6 8-8 6"/>
+          </svg>
+        </span>
+        <div>
+          <h3>WhatsApp <span>Official</span></h3>
+          <p>Paling cepat dibalas. Cocok kalau email aksesnya belum juga muncul.</p>
+        </div>
+        <a class="btn" href="https://wa.me/6281992494809" target="_blank" rel="noopener">
+          Hubungi kami
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13"/><path d="M13 6l6 6-6 6"/></svg>
+        </a>
+      </article>
+
+      <article class="channel">
+        <span class="channel__icon">
+          <svg viewBox="0 0 120 120" aria-hidden="true">
+            <path d="M20 58 100 26 86 96 62 78 48 92l-2-24Z"/>
+            <path d="M46 68 100 26"/>
+          </svg>
+        </span>
+        <div>
+          <h3>Telegram <span>Official</span></h3>
+          <p>Pengumuman kelas dan update materi juga diumumkan di kanal ini.</p>
+        </div>
+        <a class="btn" href="https://t.me/moonpondla" target="_blank" rel="noopener">
+          Hubungi kami
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13"/><path d="M13 6l6 6-6 6"/></svg>
+        </a>
+      </article>
+    </div>
+
+    <div class="warning reveal">
+      <svg viewBox="0 0 120 120" aria-hidden="true"><path d="M60 20 106 100H14L60 20Z"/><line x1="60" y1="52" x2="60" y2="72"/><circle cx="60" cy="86" r="2"/></svg>
+      <div>
+        <strong>Jangan dilayani kalau ada yang DM duluan</strong>
+        <p>Kami tidak pernah menghubungi kamu duluan lewat akun lain, dan tidak pernah minta transfer tambahan setelah pembayaran. Kanal resmi cuma lewat dua tombol di atas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section wrap" style="padding-block-start:0">
+    <div class="section__head reveal">
+      <p class="eyebrow">Sering ditanya</p>
+      <h2 class="section__title">Kalau ada yang aneh, cek ini dulu.</h2>
+    </div>
+
+    <div class="faq reveal" id="faq">
+      <div class="faq__item">
+        <button class="faq__q" type="button" aria-expanded="false">Emailnya belum masuk juga<span class="faq__sign" aria-hidden="true"></span></button>
+        <div class="faq__a"><p>Cek folder spam atau tab Promosi dulu. Kalau lewat 30 menit masih kosong, kabari kami lewat kanal resmi sambil sebut email yang kamu pakai waktu checkout.</p></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" type="button" aria-expanded="false">Salah tulis alamat email waktu checkout<span class="faq__sign" aria-hidden="true"></span></button>
+        <div class="faq__a"><p>Bisa dibetulkan. Kirim bukti bayar dan alamat email yang benar ke kanal resmi, aksesnya kami pindahkan di hari yang sama.</p></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" type="button" aria-expanded="false">Aksesnya berlaku sampai kapan<span class="faq__sign" aria-hidden="true"></span></button>
+        <div class="faq__a"><p>Selamanya, termasuk semua pembaruan materi berikutnya. Sekali beli, tidak ada perpanjangan.</p></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" type="button" aria-expanded="false">Boleh dibuka di HP<span class="faq__sign" aria-hidden="true"></span></button>
+        <div class="faq__a"><p>Boleh, materinya jalan di HP. Tapi bagian latihan grid dan tipografi jauh lebih enak dikerjakan di layar besar.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <span class="footer__mark">Moon Fat Studio</span>
+    <p>Copyright 2026© Moon Fat Studio - All Rights Reserved</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- animasi masuk bertahap ---- */
+  var items = document.querySelectorAll('.reveal');
+  if (reduced || !('IntersectionObserver' in window)) {
+    items.forEach(function(el){ el.classList.add('is-in'); });
+  } else {
+    document.querySelectorAll('.hero .reveal').forEach(function(el, i){
+      setTimeout(function(){ el.classList.add('is-in'); }, 120 + i * 40);
+    });
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+      });
+    }, { threshold: .16, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('main .reveal').forEach(function(el){ io.observe(el); });
+  }
+
+  /* ---- akordeon FAQ ---- */
+  var faq = document.getElementById('faq');
+  if (faq) {
+    faq.addEventListener('click', function(e){
+      var q = e.target.closest('.faq__q');
+      if (!q) return;
+      var item = q.parentElement;
+      var panel = item.querySelector('.faq__a');
+      var open = item.classList.contains('is-open');
+
+      faq.querySelectorAll('.faq__item.is-open').forEach(function(other){
+        other.classList.remove('is-open');
+        other.querySelector('.faq__q').setAttribute('aria-expanded','false');
+        other.querySelector('.faq__a').style.height = '0px';
+      });
+
+      if (!open) {
+        item.classList.add('is-open');
+        q.setAttribute('aria-expanded','true');
+        panel.style.height = panel.scrollHeight + 'px';
+      }
+    });
+
+    window.addEventListener('resize', function(){
+      var openItem = faq.querySelector('.faq__item.is-open .faq__a');
+      if (openItem) openItem.style.height = openItem.scrollHeight + 'px';
+    });
+  }
+})();
+</script>
+</body>
+</html>
