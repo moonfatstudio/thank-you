@@ -102,7 +102,7 @@ body{overflow-x:hidden}
   pointer-events:none;
 }
 .hero__inner{position:relative}
-.hero__title,.hero__lede,.hero__meta{max-width:44rem}
+.hero__title,.hero__lede,.hero__note,.hero__meta{max-width:44rem}
 
 .hero .eyebrow{color:var(--azureish);display:flex;align-items:center;gap:12px}
 .hero .eyebrow::after{content:"";flex:1;height:1px;background:rgba(163,206,241,.35);max-width:96px}
@@ -122,6 +122,14 @@ body{overflow-x:hidden}
   line-height:1.35;
   color:var(--azureish);
   max-width:30ch;
+}
+
+.hero__note{
+  margin-top:18px;
+  font-size:1rem;
+  color:var(--snow-cream);
+  opacity:.82;
+  max-width:42ch;
 }
 
 /* baris status di bawah hero */
@@ -291,6 +299,7 @@ body{overflow-x:hidden}
 @media(max-width:640px){
   .hero__title{font-size:clamp(3.6rem,22vw,6rem)}
   .hero__lede{font-size:1.12rem;max-width:none}
+  .hero__note{font-size:.95rem;margin-top:14px;max-width:none}
   .hero__meta{
     flex-direction:column;align-items:flex-start;gap:8px;
     margin-top:26px;padding-top:18px;font-size:.9rem;line-height:1.55;
@@ -340,8 +349,9 @@ body{overflow-x:hidden}
   <div class="wrap hero__inner">
     <p class="eyebrow reveal" style="--i:0">Pembayaran terkonfirmasi</p>
     <h1 class="hero__title reveal" style="--i:1">Beres<span class="dot">.</span></h1>
-    <p class="hero__lede reveal" style="--i:2">Duitmu sudah mendarat dengan selamat. Akses kamu dikirim otomatis, tidak perlu nunggu di-approve siapa siapa.</p>
-    <p class="hero__meta reveal" style="--i:3">
+    <p class="hero__lede reveal" style="--i:2">Kamu udah resmi masuk. Sekarang tinggal mulai belajar, praktik, dan bikin sesuatu yang keren dari apa yang kamu pelajari.</p>
+    <p class="hero__note reveal" style="--i:3">Akses kamu dikirim otomatis ke email. Cek inbox kamu dan siap mulai.</p>
+    <p class="hero__meta reveal" style="--i:4">
       <span class="status"><i></i>Lunas</span>
       Invoice dan link akses meluncur ke email kamu.
     </p>
